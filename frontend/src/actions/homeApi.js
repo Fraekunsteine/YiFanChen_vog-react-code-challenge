@@ -10,6 +10,9 @@ const getPostById = (_id) => {
         id: _id
     }
 }
+const clearSearch = () => {
+    return { type: "CLEARSEARCH" }
+}
 const addPost = (_data) => {
     return { 
         type: "ADDPOSTS",
@@ -33,6 +36,7 @@ const deletePost = (_id) => {
 export default {
     getAllPosts,
     getPostById,
+    clearSearch,
     addPost,
     editPost,
     deletePost

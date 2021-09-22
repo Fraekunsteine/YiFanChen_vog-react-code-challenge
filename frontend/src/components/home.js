@@ -20,8 +20,10 @@ function HomePage(props) {
         }); 
     }
     const search = (id) => {
-        if(id === "") loadPosts();
-        else dispatch(homeActions.getPostById(parseInt(id)));
+        dispatch(homeActions.getPostById(parseInt(id)));
+    }
+    const clear = (id) => {
+        dispatch(homeActions.clearSearch());
     }
     const addPost = (_title, _body, uid) => {
         let post = JSON.stringify({
@@ -71,19 +73,25 @@ function HomePage(props) {
     return(
         <div className={css.HomeMain}>
             <div className={css.Display}>
-                {posts.map((post) => (
+                {posts.selectedPost ? 
                     <div className={css.Post}>
-                        <h3>{post.title} - ID: {post.id}</h3>
-                        <h5>By: User{post.userId}</h5>
-                        <p>{post.body}</p>
-                    </div>
-                ))}
+                        <h3>{posts.selectedPost.title} - ID: {posts.selectedPost.id}</h3>
+                        <h5>By: User{posts.selectedPost.userId}</h5>
+                        <p>{posts.selectedPost.body}</p>
+                    </div> 
+                    : posts.posts.map((post) => (
+                        <div className={css.Post}>
+                            <h3>{post.title} - ID: {post.id}</h3>
+                            <h5>By: User{post.userId}</h5>
+                            <p>{post.body}</p>
+                        </div>
+                     ))}
             </div>
             <div className={css.Controls}>
                 <Button variant='outlined' color='primary' onClick={() => setShowDialog("Add")}>Add</Button>
                 <Button variant='outlined' onClick={() => setShowDialog("Edit")}>Edit</Button>
                 <Button variant='outlined' color='secondary' onClick={() => setShowDialog("Delete")}>Delete</Button>
-                <SearchBar search={search}></SearchBar>
+                <SearchBar search={search} clearSearch={clear}></SearchBar>
             </div>
             <Modal
                 isOpen={showDialog !== ""}
@@ -99,8 +107,6 @@ function HomePage(props) {
                 />
             </Modal>
         </div>
-        
-
     );
 }
 

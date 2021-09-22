@@ -9,7 +9,7 @@ function SearchBar(props) {
         console.log(searchInput);      
     }
     const clearSearch = () => {
-        props.search("");
+        props.clearSearch();
         setInput("");
     }
     return (

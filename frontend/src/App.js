@@ -15,7 +15,6 @@ function App() {
         <Route path='/postal-lookup' exact render={() => <div className='App'><NavigationBar/><PostalLookup/></div>}/>
         <Route path="/" exact render={() =><Redirect to="/home" />} />
     </Switch>
-  );
+  )
 }
-
 export default App;

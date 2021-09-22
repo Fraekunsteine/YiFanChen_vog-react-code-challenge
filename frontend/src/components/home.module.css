@@ -1,14 +1,18 @@
+.HomeMain {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
 .Display {
-    overflow: scroll;
+    overflow-y: scroll;
     height: 60vh;
-    margin: 10px;
+    margin-bottom: 20px;
     padding: 10px;
     border: 2px groove black;
     border-radius: 4px;
 }
 .Post {
     text-align: left;
-    margin: 20px 0px;
+    margin: 10px 0px 20px 0px;
 }
 .Post * {
     margin: 8px 0px;
@@ -17,4 +21,19 @@
 .Controls * {
     margin-left: 5px !important;
     margin-right: 5px !important;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #efefef;   
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+    border-radius: 3px;
 }
