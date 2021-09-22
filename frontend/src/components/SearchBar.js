@@ -14,7 +14,7 @@ function SearchBar(props) {
     return (
         <div className={css.Main}>
             <Input
-                placeholder={"Search by id"}
+                placeholder={props.defaultText}
                 label="Search"
                 type="text"
                 variant="standard"

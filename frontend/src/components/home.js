@@ -90,7 +90,7 @@ function HomePage(props) {
                 <Button variant='outlined' color='primary' onClick={() => setShowDialog("Add")}>Add</Button>
                 <Button variant='outlined' onClick={() => setShowDialog("Edit")}>Edit</Button>
                 <Button variant='outlined' color='secondary' onClick={() => setShowDialog("Delete")}>Delete</Button>
-                <SearchBar search={search} clearSearch={clear}></SearchBar>
+                <SearchBar search={search} clearSearch={clear} defaultText="Search by id"></SearchBar>
             </div>
             <Modal
                 isOpen={showDialog !== ""}

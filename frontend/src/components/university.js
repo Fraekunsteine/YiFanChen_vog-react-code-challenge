@@ -7,14 +7,13 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 function UniversityPage(props) {
     const university = useSelector(state => state.universityReducer);
     const dispatch = useDispatch();
-    const [country, setCountry] = useState(university.selectCountry);
+    const [country, setCountry] = useState("");
     const selectCountry = (e) => {
         setCountry(e.target.value);
     }
 
     useEffect(() => {
         dispatch(universityActions.retrieveCountries());
-        dispatch(universityActions.selectCountry("canada"));
         dispatch(universityActions.retrieveUniversities());
     }, []);
     useEffect(() => {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const retrieveCountries = () => dispatch => {
     axios.get('https://restcountries.eu/rest/v2/all').then(response => {
-        console.log(response)
+        //console.log(response)
         dispatch(updateCountries(response.data));
     }).catch(error => {
         console.log(error);
@@ -10,8 +10,8 @@ const retrieveCountries = () => dispatch => {
     });
 }
 const selectCountry = (country) => dispatch => {
-    fetch(`https://restcountries.eu/rest/v2/name/${country}`).then(response => {
-        console.log(response)
+    axios.get(`https://restcountries.com/v2/name/${country}/`).then(response => {
+        //console.log(response)
         dispatch({
             type: "SELECT_COUNTRY", 
             data: response.data
