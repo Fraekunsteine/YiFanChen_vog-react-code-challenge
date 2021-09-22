@@ -1,3 +1,17 @@
-.navigation * {
-    margin: 8px;
+.Navigation {
+    padding: 5px;
+    background: lightblue;
+    font-family: 'Impact', sans-serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.Navigation * {
+    margin: 5px 15px 5px 5px;
+}
+.Profile {
+    display: flex;
+    margin-right: 10vw;
+    font-size: 28px;
+    align-items: center;
 }
