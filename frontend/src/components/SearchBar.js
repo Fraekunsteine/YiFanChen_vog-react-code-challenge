@@ -6,7 +6,6 @@ function SearchBar(props) {
     const [searchInput, setInput] = useState("");
     const updateInput = (e) => {
         setInput(e.target.value);
-        console.log(searchInput);      
     }
     const clearSearch = () => {
         props.clearSearch();
