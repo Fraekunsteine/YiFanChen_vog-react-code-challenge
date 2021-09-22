@@ -15,6 +15,10 @@ const universityReducer = (state = initialState, action) => {
             ...state,
             selectedCountry: action.data
         }
+        case "CLEAR_SELECTION": return {
+            ...state,
+            selectedUniversities: []
+        }
         case "GET_ALL_UNIVERSITIES": return {
             ...state,
             allUniversities: action.data

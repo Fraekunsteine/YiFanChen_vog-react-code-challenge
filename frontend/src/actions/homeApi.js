@@ -1,34 +1,34 @@
 const getAllPosts = (_data) => {
     return { 
-        type: "GETALLPOSTS",
+        type: "GET_ALL_POSTS",
         data: _data
     }
 }
 const getPostById = (_id) => dispatch => {
     dispatch({ 
-        type: "GETBYID",
+        type: "GET_BY_ID",
         id: _id
     })
 }
 const clearSearch = () => {
-    return { type: "CLEARSEARCH" }
+    return { type: "CLEAR_SEARCH" }
 }
 const addPost = (_data) => dispatch => {
     dispatch({ 
-        type: "ADDPOST",
+        type: "ADD_POST",
         data: _data
     });
 }
 const editPost = (_id, _data) => dispatch => {
     dispatch({ 
-        type: "EDITPOST",
+        type: "EDIT_POST",
         id: _id,
         data: _data
     });
 }
 const deletePost = (_id) => dispatch => {
     dispatch({ 
-        type: "DELETEPOST",
+        type: "DELETE_POST",
         id: _id
     });
 }

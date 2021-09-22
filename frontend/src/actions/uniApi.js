@@ -2,24 +2,29 @@ import axios from "axios";
 
 const retrieveCountries = () => dispatch => {
     axios.get('https://restcountries.eu/rest/v2/all').then(response => {
-        console.log(response)
+        //console.log(response)
         dispatch(updateCountries(response.data));
     }).catch(error => {
         console.log(error);
+        alert("Error processing request");
         dispatch(updateMessage("Could not retrieve countries"));
     });
 }
 const selectCountry = (country) => dispatch => {
-    fetch(`https://restcountries.eu/rest/v2/name/${country}`).then(response => {
-        console.log(response)
+    axios.get(`https://restcountries.com/v2/name/${country}/`).then(response => {
+        //console.log(response)
         dispatch({
             type: "SELECT_COUNTRY", 
             data: response.data
         });
     }).catch(error => {
         console.log(error);
+        alert("Error processing request");
         dispatch(updateMessage("Could not retrieve countries"));
     });
+}
+const clearSelection = () => {
+    return { type: "CLEAR_SELECTION" };
 }
 const updateCountries = (_data) => {
     return {
@@ -35,6 +40,7 @@ const retrieveUniversities = () => dispatch => {
         })
     }).catch(error => {
         console.log(error);
+        alert("Error processing request");
         dispatch(updateMessage("Invalid selection"));
     });
 }
@@ -54,6 +60,7 @@ const updateMessage = (msg) => {
 export default {
     retrieveCountries,
     selectCountry,
+    clearSelection,
     retrieveUniversities,
     getSelectedUniversities
 };

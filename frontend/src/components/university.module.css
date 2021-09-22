@@ -18,3 +18,17 @@
 .University * {
     margin: 5px;
 }
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #efefef;   
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+    border-radius: 3px;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import css from './SearchBar.module.css'
-import { Button, Input } from '@material-ui/core'
+import { Button, OutlinedInput } from '@material-ui/core'
 
 function SearchBar(props) {
     const [searchInput, setInput] = useState("");
@@ -13,11 +13,11 @@ function SearchBar(props) {
     }
     return (
         <div className={css.Main}>
-            <Input
-                placeholder={"Search by id"}
-                label="Search"
+            <OutlinedInput  
+                fullWidth        
+                placeholder={props.defaultText}
                 type="text"
-                variant="standard"
+                variant="outlined"
                 value={searchInput}
                 onChange={updateInput}
             />
