@@ -25,31 +25,33 @@ function HomePage(props) {
     const clear = (id) => {
         dispatch(homeActions.clearSearch());
     }
-    const addPost = (_title, _body, uid) => {
-        let post = JSON.stringify({
+    const addPost = (_title, _body, uid) => {       
+        let post = {
             title: _title,
             body: _body,
             userId: uid
-        });
+        };
+        
         axios.post("https://jsonplaceholder.typicode.com/posts", post, {
             headers: { 'Content-Type': 'application/json' }
-        }).then(() => {
-            alert("Post saved successfully!");
+        }).then(response => {
+            dispatch(homeActions.addPost(response.data));
         }).catch(error => {
             console.log(error);   
         });
     }
     const editPost = (_id, _title, _body, uid) => {
-        let post = JSON.stringify({
+        let post = {
+            userId: uid,
             id: _id,
             title: _title,
-            body: _body,
-            userId: uid
-        });
+            body: _body
+        };        
+
         axios.put(`https://jsonplaceholder.typicode.com/posts/${_id}`, post, {
             headers: { 'Content-Type': 'application/json' }
-        }).then(() => {
-            alert("Post saved successfully!");
+        }).then(response => {
+            dispatch(homeActions.editPost(_id, response.data));
         }).catch(error => {
             console.log(error);
             if(error.response && error.response === 500) alert("Invalid input for post id!");
@@ -57,7 +59,7 @@ function HomePage(props) {
     }
     const deletePost = (id) => {
         axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`).then(() => {
-            alert("Post deleted successfully!");
+            dispatch(homeActions.deletePost(id));
         }).catch(error => {
             console.log(error);
             if(error.response && error.response === 500) alert("Invalid input for post id!");
@@ -80,8 +82,8 @@ function HomePage(props) {
                         <p>{posts.selectedPost.body}</p>
                     </div> 
                     : posts.posts.map((post) => (
-                        <div className={css.Post}>
-                            <h3>{post.title} - ID: {post.id}</h3>
+                        <div className={css.Post} key={post.id}>
+                            <h3>"{post.title}" - ID: {post.id}</h3>
                             <h5>By: User{post.userId}</h5>
                             <p>{post.body}</p>
                         </div>

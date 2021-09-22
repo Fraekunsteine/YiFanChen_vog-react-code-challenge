@@ -7,7 +7,7 @@
     align-items: center;
 }
 .Navigation * {
-    margin: 5px 12px;
+    margin: 5px 15px 5px 5px;
 }
 .Profile {
     display: flex;
