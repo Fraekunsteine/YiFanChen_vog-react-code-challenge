@@ -35,6 +35,7 @@ function HomePage(props) {
             headers: { 'Content-Type': 'application/json' }
         }).then(response => {
             dispatch(homeActions.addPost(response.data));
+            alert("Post added");
         }).catch(error => {
             console.log(error);   
         });
@@ -50,6 +51,7 @@ function HomePage(props) {
             headers: { 'Content-Type': 'application/json' }
         }).then(response => {
             dispatch(homeActions.editPost(_id, response.data));
+            alert(`Post - ID: ${_id} edited`);
         }).catch(error => {
             console.log(error);
             if(error.response && error.response === 500) alert("Invalid input for post id!");
@@ -58,6 +60,7 @@ function HomePage(props) {
     const deletePost = (id) => {
         axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`).then(() => {
             dispatch(homeActions.deletePost(id));
+            alert(`Post - ID: ${id} deleted`);
         }).catch(error => {
             console.log(error);
             if(error.response && error.response === 500) alert("Invalid input for post id!");
