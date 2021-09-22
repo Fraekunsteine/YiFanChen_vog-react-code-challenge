@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
+
+import NavBar from './components/navbar.js';
+import Home from './components/home.js';
+import UniversityPage from './components/university.js';
+import PostalLookup from './components/postal.js';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+        <Route path='/home' exact render={() => <div className='App'><NavBar/><Home/></div>}/>
+        <Route path='/university' exact render={() => <div className='App'><NavBar/><UniversityPage/></div>}/>
+        <Route path='/postal-lookup' exact render={() => <div className='App'><NavBar/><PostalLookup/></div>}/>
+        <Route path="/" exact render={() =><Redirect to="/home" />} />
+    </Switch>
   );
 }
 
