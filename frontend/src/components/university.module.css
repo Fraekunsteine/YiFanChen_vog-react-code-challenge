@@ -1,0 +1,20 @@
+.Content {
+    margin-top: 20px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+.Display {
+    overflow-y: scroll;
+    height: 60vh;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px groove black;
+    border-radius: 4px;
+    text-align: left;
+}
+.Display > * {
+    margin-bottom: 20px;
+}
+.University * {
+    margin: 5px;
+}

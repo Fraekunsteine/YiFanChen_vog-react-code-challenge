@@ -30,8 +30,7 @@ function HomePage(props) {
             title: _title,
             body: _body,
             userId: uid
-        };
-        
+        };       
         axios.post("https://jsonplaceholder.typicode.com/posts", post, {
             headers: { 'Content-Type': 'application/json' }
         }).then(response => {
@@ -47,7 +46,6 @@ function HomePage(props) {
             title: _title,
             body: _body
         };        
-
         axios.put(`https://jsonplaceholder.typicode.com/posts/${_id}`, post, {
             headers: { 'Content-Type': 'application/json' }
         }).then(response => {
@@ -66,7 +64,6 @@ function HomePage(props) {
         });
     }
 
-  
     useEffect(() => {
         Modal.setAppElement("#root");
         loadPosts();      
