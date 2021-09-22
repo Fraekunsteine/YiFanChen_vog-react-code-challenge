@@ -1,0 +1,8 @@
+.Content {
+    display: flex;
+    flex-direction: column;
+}
+.Content button {
+    margin: auto !important;
+    margin-top: 20px !important;
+}

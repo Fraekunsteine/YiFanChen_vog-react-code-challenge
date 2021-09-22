@@ -1,16 +1,20 @@
 .Display {
     overflow: scroll;
-    height: 80vh;
+    height: 60vh;
     margin: 10px;
     padding: 10px;
+    border: 2px groove black;
+    border-radius: 4px;
 }
 .Post {
     text-align: left;
     margin: 20px 0px;
 }
-.Post h3 {
-    margin: 5px 0px;
+.Post * {
+    margin: 8px 0px;
 }
-.Post p {
-    margin: 0px;
+
+.Controls * {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
 }

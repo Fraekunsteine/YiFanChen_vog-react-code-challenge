@@ -8,19 +8,22 @@ function SearchBar(props) {
         setInput(e.target.value);
         console.log(searchInput);      
     }
-
+    const clearSearch = () => {
+        props.search("");
+        setInput("");
+    }
     return (
         <div className={css.Main}>
             <Input
-                fullWidth={true}
-                placeholder={"Search by "+props.type}
+                placeholder={"Search by id"}
                 label="Search"
                 type="text"
                 variant="standard"
                 value={searchInput}
                 onChange={updateInput}
             />
-            <Button onClick={() => props.search(searchInput)}>Search</Button>
+            <Button variant='contained' onClick={() => props.search(searchInput)}>Search</Button>
+            <Button variant='contained' onClick={() => clearSearch()}>Clear Search</Button>
         </div> 
     );
 }
