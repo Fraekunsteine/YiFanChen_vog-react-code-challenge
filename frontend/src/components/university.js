@@ -13,6 +13,7 @@ function UniversityPage(props) {
     }
 
     useEffect(() => {
+        dispatch(universityActions.clearSelection())
         dispatch(universityActions.retrieveCountries());
         dispatch(universityActions.retrieveUniversities());
     }, []);

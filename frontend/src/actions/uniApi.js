@@ -6,6 +6,7 @@ const retrieveCountries = () => dispatch => {
         dispatch(updateCountries(response.data));
     }).catch(error => {
         console.log(error);
+        alert("Error processing request");
         dispatch(updateMessage("Could not retrieve countries"));
     });
 }
@@ -18,8 +19,12 @@ const selectCountry = (country) => dispatch => {
         });
     }).catch(error => {
         console.log(error);
+        alert("Error processing request");
         dispatch(updateMessage("Could not retrieve countries"));
     });
+}
+const clearSelection = () => {
+    return { type: "CLEAR_SELECTION" };
 }
 const updateCountries = (_data) => {
     return {
@@ -35,6 +40,7 @@ const retrieveUniversities = () => dispatch => {
         })
     }).catch(error => {
         console.log(error);
+        alert("Error processing request");
         dispatch(updateMessage("Invalid selection"));
     });
 }
@@ -54,6 +60,7 @@ const updateMessage = (msg) => {
 export default {
     retrieveCountries,
     selectCountry,
+    clearSelection,
     retrieveUniversities,
     getSelectedUniversities
 };

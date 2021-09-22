@@ -1,7 +1,6 @@
 .Main {
-    margin: 20px;
+    margin: 10px;
 }
 .Main * {
-    margin-left: 5px !important;
-    margin-right: 5px !important;
+    margin: 4px !important;
 }

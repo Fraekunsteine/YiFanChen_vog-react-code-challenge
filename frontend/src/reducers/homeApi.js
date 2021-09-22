@@ -5,28 +5,28 @@ const initialState = {
 const homeReducer = (state = initialState, action) => {
     let id = -1;
     switch(action.type) {
-        case "GETALLPOSTS": 
+        case "GET_ALL_POSTS": 
             if(state.posts.length > 0) return state;
             else return {
                 ...state,
                 posts: action.data
             };
-        case "GETBYID": 
+        case "GET_BY_ID": 
             id = state.posts.findIndex(el => el.id === action.id);
             if(id === -1) return state;
             else return {
                 ...state,
                 selectedPost: state.posts[id]
             };
-        case "CLEARSEARCH": return {
+        case "CLEAR_SEARCH": return {
             ...state,
             selectedPost: null
         };
-        case "ADDPOST": return {
+        case "ADD_POST": return {
             ...state,
             posts: state.posts.concat(action.data)
         };
-        case "EDITPOST": 
+        case "EDIT_POST": 
             id = state.posts.findIndex(el => el.id === action.id);
             if(id === -1) return state;
             else {
@@ -37,7 +37,7 @@ const homeReducer = (state = initialState, action) => {
                     posts: temp
                 };
             }
-        case "DELETEPOST": 
+        case "DELETE_POST": 
             id = state.posts.findIndex(el => el.id === action.id);
             if(id === -1) return state;
             else {
